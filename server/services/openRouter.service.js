@@ -1,28 +1,69 @@
-import axios from "axios"
+// import axios from "axios"
+// export const askAi = async (messages) => {
+//     try {
+//         if (!message || Array.isArray(messages) || messages.length === 0) {
+//             throw new Error("Messages array is empty")
+//         }
+//         const responce = axios.post("https://openrouter.ai/api/v1/chat/completions", {
+//             model: 'openai/gpt-5.2',
+//             messages: messages
+//         },
+//             {
+//                 headers: {
+//                     Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+//                     'Content-Type': 'application/json',
+//                 }
+//             }
+//         )
+
+//         const content = responce?.data?.choices?.[0]?.message?.content;
+//         if (!content || !content.trim()) {
+//             throw new Error("AI returned empty responce.");
+//         }
+//         return content;
+//     } catch (err) {
+//         console.error("openrouter error:", error.responce?.data || error.message);
+//         throw new Error("openrouter api error");
+//     }
+// }
+import axios from "axios";
+
 export const askAi = async (messages) => {
     try {
-        if (!message || Array.isArray(messages) || messages.length === 0) {
-            throw new Error("Messages array is empty")
+
+        if (!messages || !Array.isArray(messages) || messages.length === 0) {
+            throw new Error("Messages array is empty");
         }
-        const responce = axios.post("https://openrouter.ai/api/v1/chat/completions", {
-            model: 'openai/gpt-5.2',
-            messages: messages
-        },
+
+        const response = await axios.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            {
+                model: "openai/gpt-4o-mini",
+                messages: messages
+            },
             {
                 headers: {
-                    Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${process.env.OPENRouter_API_KEY}`,
+                    "Content-Type": "application/json"
                 }
             }
-        )
+        );
 
-        const content = responce?.data?.choices?.[0]?.message?.content;
+        const content = response?.data?.choices?.[0]?.message?.content;
+
         if (!content || !content.trim()) {
-            throw new Error("AI returned empty responce.");
+            throw new Error("AI returned empty response.");
         }
+
         return content;
+
     } catch (err) {
-        console.error("openrouter error:", error.responce?.data || error.message);
-        throw new Error("openrouter api error");
+
+        console.error(
+            "OpenRouter error:",
+            err.response?.data || err.message
+        );
+
+        throw new Error("OpenRouter API error");
     }
-}
+};
