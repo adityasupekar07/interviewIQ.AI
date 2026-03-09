@@ -83,7 +83,7 @@ const NavBar = () => {
                         {showUserPopUp && (
                             <div className='absolute right-0 w-48 mt-3 bg-white border border-gray-200 rounded-lg shadow-xl p-5 z-50'>
                                 <p className='text-md text-blue-600 font-medium mb-1'>{userData?.name}</p>
-                                <button onClick={() => navigate('/profile')} className='w-full bg-gray-100 text-gray-800 py-2 rounded-lg  text-sm mb-2 hover:bg-gray-200 transition'>History</button>
+                                <button onClick={() => navigate('/history')} className='w-full bg-gray-100 text-gray-800 py-2 rounded-lg  text-sm mb-2 hover:bg-gray-200 transition'>History</button>
                                 <button onClick={handleLogout} className='w-full bg-red-500 text-white py-2 rounded-lg  text-sm hover:bg-red-600 transition flex items-center justify-center gap-2'><HiOutlineLogout size={16} /> Logout</button>
                             </div>
                         )}
