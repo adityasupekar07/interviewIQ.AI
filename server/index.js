@@ -11,10 +11,12 @@ import paymentRouter from './routes/payment.route.js';
 const app = express();
 // Middleware to get request  on only frontend with url http://localhost:5173 and allow credentials like cookies
 app.use(cors({
-    origin: "https://interviora.onrender.com",
-    credentials: true,
+    origin: [
+        "http://localhost:5173",
+        "https://interviewiq-ai.vercel.app"
+    ],
+    credentials: true
 }));
-
 app.use(express.json());
 app.use(cookieParser());
 
