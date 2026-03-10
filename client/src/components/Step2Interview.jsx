@@ -13,7 +13,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   const { interviewId, questions, userName } = interviewData;
 
   const [isIntroPhase, setIsIntroPhase] = useState(true);
-  const [isMicOn, setIsMicOn] = useState(false);
+  const [isMiceOn, setIsMicOn] = useState(false);
   const recognitionRef = useRef(null);
   const [isAIPlaying, setIsAIPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
