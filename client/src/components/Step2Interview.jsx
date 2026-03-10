@@ -13,12 +13,12 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   const { interviewId, questions, userName } = interviewData;
 
   const [isIntroPhase, setIsIntroPhase] = useState(true);
-  const [isMiceOn, setIsMicOn] = useState(false);
+  const [isMicOn, setIsMicOn] = useState(false);
   const recognitionRef = useRef(null);
   const [isAIPlaying, setIsAIPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [timeLeft, setTimeLeft] = useState(questions[0]?.timeLimit || 60);
+const [timeLeft, setTimeLeft] = useState(questions?.[0]?.timeLimit || 60);
   const [feedback, setFeedback] = useState("");
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,7 +90,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
         videoRef.current?.pause();
         videoRef.current.currentTime = 0;
 
-        if (isMiceOn) {
+        if (isMicOn) {
           startMic();
         }
         setTimeout(() => {
@@ -117,7 +117,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
           await speakText("Alright ,this one might be a bit more challenging.");
         }
         await speakText(currentQuestion.question);
-        if (isMiceOn) {
+        if (isMicOn) {
           startMic();
         }
       }
@@ -179,7 +179,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     }
   }
   const toggleMic = () => {
-  if (isMiceOn) {
+  if (isMicOn) {
     stopMic();
   } else {
     startMic();
@@ -221,7 +221,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     await speakText("Great, let's move on to the next question.");
     setCurrentIndex(currentIndex + 1);
     setTimeout(() => {
-      if (isMiceOn) {
+      if (isMicOn) {
         startMic();
       }
     }, 500);
@@ -366,7 +366,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
                 className='w-14 h-14 flex items-center justify-center rounded-full bg-black text-white'
                 whileTap={{ scale: 0.9 }}
               >
-                {isMiceOn ? <FaMicrophone size={20} /> : <FaMicrophoneSlash size={20} />}
+                {isMicOn ? <FaMicrophone size={20} /> : <FaMicrophoneSlash size={20} />}
               </motion.button>
 
               <motion.button
