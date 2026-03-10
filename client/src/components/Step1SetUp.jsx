@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice'
-import { on } from 'ws'
 const Step1SetUp = ({ onStart }) => {
   const { userData } = useSelector((state) => state.user);
   const dispatch = useDispatch();
