@@ -1,4 +1,4 @@
-import React, { use, useRef } from 'react'
+import React, { useRef } from 'react'
 import mailVideo from '../assets/Videos/male-ai.mp4'
 import femaleVideo from '../assets/Videos/female-ai.mp4'
 import Timer from './Timer'
@@ -8,13 +8,12 @@ import { useState } from 'react'
 import axios from 'axios'
 import { ServerURL } from '../App'
 import { useEffect } from 'react'
-import { set } from 'mongoose'
 import { BsArrowRight } from 'react-icons/bs'
 const Step2Interview = ({ interviewData, onFinish }) => {
   const { interviewId, questions, userName } = interviewData;
 
   const [isIntroPhase, setIsIntroPhase] = useState(true);
-  const [isMiceOn, setIsMicOn] = useState(false);
+  const [isMicOn, setIsMicOn] = useState(false);
   const recognitionRef = useRef(null);
   const [isAIPlaying, setIsAIPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
