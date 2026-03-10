@@ -11,6 +11,7 @@ import InterviewHistory from './pages/InterviewHistory.jsx'
 import Pricing from './pages/Pricing.jsx'
 import InterviewReport from './pages/InterviewReport.jsx'
 export const ServerURL = "https://interviewiq-ai-spna.onrender.com";
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
