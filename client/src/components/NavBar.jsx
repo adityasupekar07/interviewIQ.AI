@@ -46,7 +46,7 @@ const NavBar = () => {
                         <BsRobot size={18} />
                     </div>
                     <h1 className='font-semibold hidden md:block text-lg'>
-                        interviewIQ.AI</h1>
+                         interviora.AI</h1>
                 </div>
                 <div className='flex item-center gap-6 relative'>
                     <div className='relative'>
