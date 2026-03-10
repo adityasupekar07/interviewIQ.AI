@@ -179,14 +179,12 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     }
   }
   const toggleMic = () => {
-    if (isMiceOn) {
-      stopMic();
-    } else {
-      startMic();
-    }
-    setIsMicOn(!isMiceOn);
+  if (isMiceOn) {
+    stopMic();
+  } else {
+    startMic();
   }
-
+}
   useEffect(() => {
     if (!currentQuestion) return;
     setTimeLeft(currentQuestion.timeLimit || 60);
