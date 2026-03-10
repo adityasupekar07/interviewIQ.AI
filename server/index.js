@@ -11,7 +11,7 @@ import paymentRouter from './routes/payment.route.js';
 const app = express();
 // Middleware to get request  on only frontend with url http://localhost:5173 and allow credentials like cookies
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://interviora.onrender.com",
     credentials: true,
 }));
 
