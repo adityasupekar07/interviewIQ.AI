@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { set } from 'mongoose'
 import { setUserData } from '../redux/userSlice'
 import { on } from 'ws'
 const Step1SetUp = ({ onStart }) => {
